@@ -1,6 +1,6 @@
-# ecommerce_app
+# ecommercehome
 
-A new Flutter project.
+the home page for the flutter e-commerce app
 
 ## Getting Started
 
