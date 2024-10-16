@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  Future signIn() async {}
+  final _cofirmPasswordController = TextEditingController();
+  Future signUp() async {}
 
-  void openSignupScreen() {
-    Navigator.of(context).pushReplacementNamed('signupScreen');
+  void openLoginScreen() {
+    Navigator.of(context).pushReplacementNamed('loginScreen');
   }
 
   @override
@@ -22,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _cofirmPasswordController.dispose();
   }
 
   @override
@@ -36,14 +38,14 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 //Title
                 Text(
-                  'SIGN IN',
+                  'SIGN UP',
                   style: GoogleFonts.robotoCondensed(
                       fontSize: 40, fontWeight: FontWeight.bold),
                 ),
 
                 //Subitile
                 Text(
-                  'Welcome Back!',
+                  'Welcome! Sign Up Now',
                   style: GoogleFonts.robotoCondensed(fontSize: 18),
                 ),
                 SizedBox(
@@ -91,18 +93,40 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: 15),
 
+//Confirm Password TextField
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextField(
+                        controller: _cofirmPasswordController,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Confirm Password'),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 15),
+
                 //Sign in button
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: GestureDetector(
-                    onTap: signIn,
+                    onTap: signUp,
                     child: Container(
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
                           color: Colors.amber[900],
                           borderRadius: BorderRadius.circular(12)),
                       child: Center(
-                          child: Text('SIGN IN',
+                          child: Text('SIGN UP',
                               style: GoogleFonts.robotoCondensed(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -119,14 +143,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'NOT MEMBER?',
+                      'Already member?',
                       style: GoogleFonts.robotoCondensed(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     GestureDetector(
-                      onTap: openSignupScreen,
-                      child: Text(' SIGN UP NOW',
+                      onTap: openLoginScreen,
+                      child: Text(' SIGN IN NOW',
                           style: GoogleFonts.robotoCondensed(
                             color: Colors.green,
                             fontWeight: FontWeight.bold,
