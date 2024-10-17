@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../size_config.dart';
+import '../../../utils/size_config.dart';
 
 
 class specialsIdentifier extends StatelessWidget {
@@ -23,12 +23,12 @@ class specialsIdentifier extends StatelessWidget {
             text,
             style: TextStyle(
                 fontSize: getProportionateScreenWidth(18),
-                color: Colors.black
+                color: const Color.fromARGB(225, 0, 0, 0)
             ),
           ),
           GestureDetector(
               onTap: press,
-              child:Text("See More"))
+              child:const Text("See More"))
         ],
       ),
     );

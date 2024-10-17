@@ -1,7 +1,7 @@
-import 'package:ecommercehome/home_screen/components/specialstitle.dart';
+import 'package:ecommercehome/screens/home_screen/components/specialstitle.dart';
 import 'package:flutter/material.dart';
 
-import '../../size_config.dart';
+import '../../../utils/size_config.dart';
 
 
 
@@ -16,23 +16,35 @@ class specialOffers extends StatelessWidget {
     return Column(
       children: [
         specialsIdentifier(
-          text: "Today's specials",
-          press: (){},
+          text: "Today's Specials",
+          press: (){
+            Navigator.pushNamed(context, "/products");
+          },
         ),
         SizedBox(height: getProportionateScreenWidth(20),),
         SingleChildScrollView(
           scrollDirection:Axis.horizontal,
           child: Row(
             children: [
-              specialofferscard(image:"Assets/images/electronicsbanner.png",
-                catagory:"Electronics",
-                numofbrands:18,
-                press: (){},
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/electronics");
+                },
+                child: specialofferscard(image:"Assets/images/electronicsbanner.png",
+                  catagory:"Electronics",
+                  numofbrands:18,
+                  press: (){},
+                ),
               ),
-              specialofferscard(image:"Assets/images/pikasoedit.jpeg",
-                catagory:"Clothing",
-                numofbrands:26,
-                press: (){},
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/fashion");
+                },
+                child: specialofferscard(image:"Assets/images/pikasoedit.jpeg",
+                  catagory:"Fashion",
+                  numofbrands:26,
+                  press: (){},
+                ),
               ),
               SizedBox(width: getProportionateScreenWidth(20),)
             ],
@@ -65,7 +77,7 @@ class specialofferscard extends StatelessWidget {
           borderRadius: BorderRadius.circular(25),
           child: Stack(
             children: [
-              AspectRatio(aspectRatio: 2.4),
+              const AspectRatio(aspectRatio: 2.4),
               Image.asset(
                 image,
                 fit: BoxFit.cover,),
@@ -74,21 +86,21 @@ class specialofferscard extends StatelessWidget {
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors:[ Color(0xFF343434).withOpacity(0.4),
-                        Color(0xFF343434).withOpacity(0.15)
+                      colors:[ const Color(0xFF343434).withOpacity(0.4),
+                        const Color(0xFF343434).withOpacity(0.15)
                       ],
                     )
                 ),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal:getProportionateScreenWidth(20),
-                    vertical: getProportionateScreenWidth(10)),
+                    vertical: getProportionateScreenWidth(15)),
                 child: Text.rich(
                     TextSpan(
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         children:[
                           TextSpan(text: "$catagory\n",
-                              style:TextStyle(fontSize:getProportionateScreenWidth(22),
+                              style:TextStyle(fontSize:getProportionateScreenWidth(25),
                                   fontWeight: FontWeight.bold)),
                           TextSpan(text: "$numofbrands brands")
                         ]

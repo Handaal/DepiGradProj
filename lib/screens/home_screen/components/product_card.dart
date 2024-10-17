@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../Models/Product.dart';
-import '../../constants.dart';
-import '../../size_config.dart';
+import '../../../Models/product.dart';
+import '../../../utils/constants.dart';
+import '../../../utils/size_config.dart';
 
 
 
@@ -40,7 +40,7 @@ class ProductCard extends StatelessWidget {
               ),
             ),
             Text(product.title,
-              style: TextStyle(color: Colors.black),maxLines:2,
+              style: const TextStyle(color: Colors.black),maxLines:2,
             ),
             Text("${product.price}",
               style: TextStyle(fontSize: getProportionateScreenWidth(18),

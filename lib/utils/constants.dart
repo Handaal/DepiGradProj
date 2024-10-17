@@ -1,9 +1,9 @@
-import 'package:ecommercehome/size_config.dart';
+import 'package:ecommercehome/utils/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommercehome/size_config.dart';
 
-const kPrimaryColor = Color(0xFFFF7643);
+const kPrimaryColor = Color.fromARGB(255, 250, 67, 0);
 const kPrimaryLightColor = Color(0xFFFFECDF);
+const secondaryColor = Color.fromARGB(255, 44, 0, 98);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
@@ -46,6 +46,6 @@ final otpInputDecoration = InputDecoration(
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
-    borderSide: BorderSide(color: kTextColor),
+    borderSide: const BorderSide(color: kTextColor),
   );
 }
