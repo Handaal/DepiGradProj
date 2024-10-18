@@ -13,6 +13,7 @@ import 'package:ecommercehome/screens/fashion.dart';
 import 'package:ecommercehome/screens/home_screen/home.dart';
 import 'package:ecommercehome/screens/notifications.dart';
 import 'package:ecommercehome/screens/other.dart';
+import 'package:ecommercehome/screens/productdetails.dart';
 import 'package:ecommercehome/screens/products.dart';
 import 'package:ecommercehome/screens/profile.dart';
 import 'package:ecommercehome/screens/settings.dart';
@@ -31,9 +32,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
-      minTextAdapt: true,
-      splitScreenMode: true,
+      // designSize: const Size(360, 690),
+      // minTextAdapt: true,
+      // splitScreenMode: true,
       builder: (BuildContext context, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
             // '/books' : (context) => const Books(),
             '/deals' : (context) => const Deals(),
             '/other' : (context) => const Other(),
+            '/productDetails' : (context) => const ProductDetailsPage(),
           },
         );
       }

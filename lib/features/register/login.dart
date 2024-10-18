@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
+
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+
   Future signIn() async {}
+
   void openSignupScreen() {
     Navigator.pushNamed(context, "/signup");
   }
+
   @override
   void dispose() {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,21 +33,25 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                //Title
+                // Title
                 Text(
                   'SIGN IN',
-                  style: GoogleFonts.robotoCondensed(
-                      fontSize: 40, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                //Subitile
+                // Subtitle
                 Text(
                   'Welcome Back!',
-                  style: GoogleFonts.robotoCondensed(fontSize: 18),
+                  style: const TextStyle(
+                    fontSize: 18,
+                  ),
                 ),
                 const SizedBox(
                   height: 50,
                 ),
-                //Email Textfield
+                // Email TextField
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Container(
@@ -55,13 +64,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: TextField(
                         controller: _emailController,
                         decoration: const InputDecoration(
-                            border: InputBorder.none, hintText: 'Email'),
+                          border: InputBorder.none,
+                          hintText: 'Email',
+                        ),
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 10),
-                //Password TextField
+                // Password TextField
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Container(
@@ -75,55 +86,67 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _passwordController,
                         obscureText: true,
                         decoration: const InputDecoration(
-                            border: InputBorder.none, hintText: 'Password'),
+                          border: InputBorder.none,
+                          hintText: 'Password',
+                        ),
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 15),
-                //Sign in button
+                // Sign in button
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: GestureDetector(
-                    onTap: signIn,
+                    // onTap: signIn,
+                    onTap: () {
+                      Navigator.pushNamed(context, "/bottomNavBar");
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                          color: Colors.amber[900],
-                          borderRadius: BorderRadius.circular(12)),
-                      child: Center(
-                          child: Text('SIGN IN',
-                              style: GoogleFonts.robotoCondensed(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ))),
+                        color: Colors.amber[900],
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'SIGN IN',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 20),
-                //Text: sign up
+                // Text: sign up
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'NOT A MEMBER?',
-                      style: GoogleFonts.robotoCondensed(
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     GestureDetector(
-                      onTap: openSignupScreen,
-                      child: Text(' SIGN UP NOW',
-                          style: GoogleFonts.robotoCondensed(
-                            color: Colors.green,
-                            fontWeight: FontWeight.bold,
-                          )),
+                      // onTap: openSignupScreen,
+                      onTap: () {
+                        Navigator.pushNamed(context, "/signup");
+                      },
+                      child: const Text(
+                        ' SIGN UP NOW',
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
                 ),
-
-            
               ],
             ),
           ),

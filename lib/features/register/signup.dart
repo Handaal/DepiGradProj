@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
   @override
   State<SignupScreen> createState() => _SignupScreenState();
 }
+
 class _SignupScreenState extends State<SignupScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _cofirmPasswordController = TextEditingController();
+
   Future signUp() async {}
+
   void openLoginScreen() {
     Navigator.pushNamed(context, "/login");
   }
+
   @override
   void dispose() {
     super.dispose();
@@ -20,6 +25,7 @@ class _SignupScreenState extends State<SignupScreen> {
     _passwordController.dispose();
     _cofirmPasswordController.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,21 +36,25 @@ class _SignupScreenState extends State<SignupScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                //Title
-                Text(
+                // Title
+                const Text(
                   'SIGN UP',
-                  style: GoogleFonts.robotoCondensed(
-                      fontSize: 40, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                //Subitile
-                Text(
+                // Subtitle
+                const Text(
                   'Welcome! Sign Up Now',
-                  style: GoogleFonts.robotoCondensed(fontSize: 18),
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
                 ),
                 const SizedBox(
                   height: 50,
                 ),
-                //Email Textfield
+                // Email TextField
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Container(
@@ -57,13 +67,15 @@ class _SignupScreenState extends State<SignupScreen> {
                       child: TextField(
                         controller: _emailController,
                         decoration: const InputDecoration(
-                            border: InputBorder.none, hintText: 'Email'),
+                          border: InputBorder.none,
+                          hintText: 'Email',
+                        ),
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 10),
-                //Password TextField
+                // Password TextField
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Container(
@@ -77,13 +89,15 @@ class _SignupScreenState extends State<SignupScreen> {
                         controller: _passwordController,
                         obscureText: true,
                         decoration: const InputDecoration(
-                            border: InputBorder.none, hintText: 'Password'),
+                          border: InputBorder.none,
+                          hintText: 'Password',
+                        ),
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 15),
-//Confirm Password TextField
+                // Confirm Password TextField
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Container(
@@ -97,54 +111,67 @@ class _SignupScreenState extends State<SignupScreen> {
                         controller: _cofirmPasswordController,
                         obscureText: true,
                         decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Confirm Password'),
+                          border: InputBorder.none,
+                          hintText: 'Confirm Password',
+                        ),
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 15),
-                //Sign in button
+                // Sign up button
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: GestureDetector(
-                    onTap: signUp,
+                    // onTap: signUp,
+                    onTap: () {
+                      Navigator.pushNamed(context, "/bottomNavBar");
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                          color: Colors.amber[900],
-                          borderRadius: BorderRadius.circular(12)),
-                      child: Center(
-                          child: Text('SIGN UP',
-                              style: GoogleFonts.robotoCondensed(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ))),
+                        color: Colors.amber[900],
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'SIGN UP',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 20),
-                //Text: sign up
+                // Text: sign up
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Already member?',
-                      style: GoogleFonts.robotoCondensed(
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     GestureDetector(
-                      onTap: openLoginScreen,
-                      child: Text(' SIGN IN NOW',
-                          style: GoogleFonts.robotoCondensed(
-                            color: Colors.green,
-                            fontWeight: FontWeight.bold,
-                          )),
+                      // onTap: openLoginScreen,
+                      onTap: () {
+                        Navigator.pushNamed(context, "/login");
+                      },
+                      child: const Text(
+                        ' SIGN IN NOW',
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

@@ -43,7 +43,7 @@ class Deals extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              "There are no deals for now/nCome Back Later!",
+              "There are no deals for now\nCome Back Later!",
               style: TextStyle(
                 fontSize: 18,              
               ),
